@@ -11,7 +11,7 @@ O desafio é desenvolver um *SPA (Single Page Application)* de uma lista de cont
 
 GET: *https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts*
 
-### Requisitos - Parte 2:
+### Requisitos:
 
 - Crie os *estados* do SPA.
 - Consuma a *API de contatos* no *ciclo de vida correto* do componente.
