@@ -5,11 +5,12 @@ import Button from "./Button";
 import Searchbar from "./Searchbar";
 
 class Filters extends React.Component {
+
   render() {
     return (
       <div className="container" data-testid="filters">
         <section className="filters">
-          <Searchbar />
+          <Searchbar handleSubmit={(e)=>this.props.handleSubmit(e)}/>
           <Button name="Nome" icon={this.props.sortOrder}
             isSelected={this.props.sortField === "name"}
             handleClick={(event) => this.props.onSort("name")}>

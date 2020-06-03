@@ -7,7 +7,7 @@ import { API_URL, ASC, DESC } from "../src/constants";
 import Topbar from "./components/Topbar";
 import Filters from "./components/Filters";
 import Contacts from "./components/Contacts";
-
+import Loading from "./components/Loading";
 class App extends React.Component {
   constructor() {
     super();
@@ -26,15 +26,14 @@ class App extends React.Component {
     const response = await fetch(API_URL)
       .then((res) => res.json())
       .then((data) => data);
-    this.setState({ loading: false, contacts: response });
+    this.setState({ loading: false, contacts: response, originalContacts: response });
+    this.sortByField('name');
   }
 
-  sortByField(fieldName) {
-    console.log(fieldName);
-    this.setState({sortOrder: -this.state.sortOrder, orderBy: fieldName});
+  async sortByField(fieldName) {
+    await this.setState({sortOrder: -this.state.sortOrder, orderBy: fieldName});
     const array = [...this.state.contacts];
     array.sort((a, b) => this.compare(a, b));
-    console.log(array)
     this.setState({contacts:array})
   }
 
@@ -48,12 +47,29 @@ class App extends React.Component {
     return 0;
   }
 
+  filter(query) {
+    const array = [...this.state.originalContacts];
+    const filtered = query ? array.filter((contato) => contato.name.toUpperCase().includes(query.toUpperCase()) ||
+                              contato.name.toUpperCase().includes(query.toUpperCase()) ||
+                              contato.phone.toUpperCase().includes(query.toUpperCase()) ||
+                              contato.country.toUpperCase().includes(query.toUpperCase()) ||
+                              contato.company.toUpperCase().includes(query.toUpperCase()) ||
+                              contato.department.toUpperCase().includes(query.toUpperCase()) 
+                           ) : array;
+    this.setState({ loading: false, contacts: filtered, sortOrder: ASC, orderBy: "name"});
+  }
+
+  handleSubmit(event) {
+    this.filter(event.target.value)
+    event.preventDefault();
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Topbar />
-        <Filters sortField={this.state.orderBy} sortOrder={this.state.sortOrder} onSort={(value) => this.sortByField(value)} />
-        <Contacts contatos={this.state.contacts} />
+        <Topbar/>
+        <Filters sortField={this.state.orderBy} sortOrder={this.state.sortOrder} onSort={(value) => this.sortByField(value)} handleSubmit={(ev) => this.handleSubmit(ev)} />
+        {this.state.loading ? <Loading/> : <Contacts contatos={this.state.contacts} />}
       </React.Fragment>
     );
   }
