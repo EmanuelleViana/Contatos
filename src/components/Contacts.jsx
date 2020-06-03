@@ -3,6 +3,7 @@ import Label from "./Label";
 import Contact from "./Contact";
 
 import "./Contacts.scss";
+import ErrorBoundary from "../error/ErrorBoundary";
 
 class Contacts extends React.Component {
   render() {
@@ -18,11 +19,12 @@ class Contacts extends React.Component {
             <Label name="Empresa" />
             <Label name="Departamento" />
           </article>
-          {this.props?.contatos?.length === 0
+         <ErrorBoundary> {this.props?.contatos?.length === 0
             ? "Nenhum registro encontrado"
             : this.props.contatos.map((contato) => {
                 return <Contact key={contato.id} contato={contato} />;
               })}
+          </ErrorBoundary>
         </section>
       </div>
     );
