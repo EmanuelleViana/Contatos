@@ -47,7 +47,8 @@ class App extends React.Component {
     return 0;
   }
 
-  filter(query) {
+  async filter(query) {
+    
     const array = [...this.state.originalContacts];
     const filtered = query ? array.filter((contato) => contato.name.toUpperCase().includes(query.toUpperCase()) ||
                               contato.name.toUpperCase().includes(query.toUpperCase()) ||
@@ -56,7 +57,9 @@ class App extends React.Component {
                               contato.company.toUpperCase().includes(query.toUpperCase()) ||
                               contato.department.toUpperCase().includes(query.toUpperCase()) 
                            ) : array;
-    this.setState({ loading: false, contacts: filtered, sortOrder: ASC, orderBy: "name"});
+    await this.setState({ loading: false, contacts: filtered, sortOrder: -this.state.sortOrder});
+    this.sortByField(this.state.orderBy);
+
   }
 
   handleSubmit(event) {
