@@ -28,7 +28,7 @@ GET: *https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts*
 - Instale as dependências do projeto com o comando *yarn install* ou *npm install*.
 - Inicie o projeto com comando *yarn start* ou *npm start* / *npm run start*.
 
-**Repositório Github:**
+**Repositório da resolução final - Github:**
 
 [Contacts SPA](https://github.com/EmanuelleViana/Contatos)
 
@@ -46,10 +46,6 @@ Neste desafio são aplicados os conhecimentos em:
 
 * **[Node v13.8.0](https://nodejs.org/en/)** - ou superior, instalado em seu computador.
 * **[Create React App](https://github.com/facebook/create-react-app)**
-
-## Screenshot de Referência
-
-![](https://codenation-challenges.s3-us-west-1.amazonaws.com/react-14/screenshot.png)
 
 
 
