@@ -1,4 +1,4 @@
-# SPA: App de Contatos
+# Desafio SPA: App de Contatos
 
 ## Objetivo:
 O desafio é desenvolver um *SPA (Single Page Application)* de uma lista de contatos em **React** com as seguintes funcionalidades:
@@ -28,13 +28,13 @@ GET: *https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts*
 - Instale as dependências do projeto com o comando *yarn install* ou *npm install*.
 - Inicie o projeto com comando *yarn start* ou *npm start* / *npm run start*.
 
-**Preview:**
+**Repositório Github:**
 
-[Contacts SPA](https://vimeo.com/414869096/55f4293a68)
+[Contacts SPA](https://github.com/EmanuelleViana/Contatos)
 
 ## Tópicos:
 
-Neste desafio você vai praticar os seus conhecimentos em:
+Neste desafio são aplicados os conhecimentos em:
 
 - **React**
 - **React - Ciclo de vida de componentes**

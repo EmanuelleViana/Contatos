@@ -2,7 +2,7 @@ import React from "react";
 
 import "./App.scss";
 
-import { API_URL, ASC, DESC } from "../src/constants";
+import { API_URL, ASC } from "../src/constants";
 
 import Topbar from "./components/Topbar";
 import Filters from "./components/Filters";
