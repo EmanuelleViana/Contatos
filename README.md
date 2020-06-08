@@ -7,10 +7,6 @@ O desafio é desenvolver um *SPA (Single Page Application)* de uma lista de cont
 -  Busca de um contato aplicando filtro em **tempo real**.
 -  Aplicar filtros de ordenação por *Nome*, *País*, *Empresa*, *Departamento* e *Data de Admissão*.
 
-### API de Contatos:
-
-GET: *https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts*
-
 ### Iniciar o projeto:
 
 - Instale as dependências do projeto com o comando *yarn install* ou *npm install*.
